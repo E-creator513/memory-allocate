@@ -6,6 +6,10 @@
 
 void print_test(char* const header) {
   static size_t test_n = 1;
+  
+  
+  
+  
   printf("____________Test ##%zu ____________\n%s\n ", test_n,header);
   test_n++;
 }
@@ -17,12 +21,19 @@ int main() {
 
   print_test("Normal successful memory allocation");
   void* block1 = _malloc(100);
+  
+  
+  
+  
   void* block2 = _malloc(400);
   _malloc(100);
   void* block3 = _malloc(1);
   _malloc(1000);
   debug_heap(stdout, heap);
   
+  
+  
+
   print_test("Freeing one block from several allocated");
   _free(block3);
   debug_heap(stdout, heap);
@@ -34,8 +45,15 @@ int main() {
 
    print_test("The memory is over, the new region of memory expands the old");
   _malloc(200);
+  
+  
+  
   _malloc(10000);
   _malloc(10300);
+  
+  
+  
+  
   _malloc(666);
   debug_heap(stdout, heap);
 
@@ -43,6 +61,6 @@ int main() {
   print_test("Free heap");
   _free_heap();
   debug_heap(stdout, heap);
-  
+
   return 0;
 }
