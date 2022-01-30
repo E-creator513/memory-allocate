@@ -7,7 +7,7 @@
 
 #define STANDART_OUT_FILE "output.bmp"
 
-// i use arch btw
+
 
 int main(int argc, char *argv[]) {
     if (argc <2||argc >3) {
