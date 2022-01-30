@@ -24,4 +24,4 @@ Image is saved in file
 Memory freed
 ```
 #### Input and output files:
-![cat](examples/cat.bmp) ![cat](examples/cat_out.bmp)
+![cat](Kutecate/cat.bmp) ![cat](Kutecat/cat_out.bmp)
