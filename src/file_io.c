@@ -25,8 +25,8 @@ enum close_status file_close(FILE * file){
     }
 
 static char* const open_status_string[] = {
-        [OPEN_OK]             = "File for reading/writing is open\n",
-        [OPEN_WRITE_ERROR]    = "Error opening file for writing\n",
+        [OPEN_OK]             = "Файл для чтения/записи открыт\n",
+        [OPEN_WRITE_ERROR]    = "Ошибка при открытии файла для записи\n",
         [OPEN_READ_ERROR]     = "Error opening file for reading\n",
 };
 
