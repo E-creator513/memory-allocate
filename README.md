@@ -6,7 +6,7 @@ With Unix environments
 # c_bmp_image_rotation
 ## Laboratory work on programming languages (C)
 ### Build & run
--edit C with Vim in the console. I employ makefiles and have a number of compilers to test my code against, including gcc, clang (LLVM) and icc
+- Edit C with Vim in the console. I employ makefiles and have a number of compilers to test my code against, including gcc, clang (LLVM) and icc
 - To build you need to type `make` in the root directory.
 - After that to run you need to type `./build/rotator`
 
