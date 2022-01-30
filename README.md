@@ -18,9 +18,9 @@ With Unix environments
 ```
 Input File: 'CuteKat/cat.bmp' 
 Output File: 'CuteKat/cat_out.bmp'
-File for reading/writing is open
+Файл для чтения/записи открыт
 Image form file is loaded
-File for reading/writing is open
+Файл для чтения/записи открыт
 Image is saved in file
 Memory freed
 ```
