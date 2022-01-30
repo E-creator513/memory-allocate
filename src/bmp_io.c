@@ -20,7 +20,110 @@ void _free_bmp_header(struct bmp_header * header){
 }
 
 struct bmp_header _generate_header (struct image const *img) {
+ /*printing information
+ 
+    class Test {
+    int screenWidth;
+    int screenHeight;
+    HWND targetWindow;
+    HDC targetDC;
+    HDC captureDC;
+    RGBQUAD *pixels;
+    HBITMAP captureBitmap;
 
+
+    bool TakeScreenshot() {
+        ZeroMemory(pixels, screenHeight*screenWidth);
+        screenWidth = GetSystemMetrics(SM_CXSCREEN);
+        screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+        targetWindow = GetDesktopWindow();
+        targetDC = GetDC(NULL);
+
+
+        captureDC = CreateCompatibleDC(targetDC);
+
+        captureBitmap = CreateCompatibleBitmap(targetDC, screenWidth, screenHeight);
+        HGDIOBJ old = SelectObject(captureDC, captureBitmap);
+        if (!old)
+            printf("Error selecting object\n");
+
+        OpenClipboard(NULL);
+        EmptyClipboard();
+        SetClipboardData(CF_BITMAP, captureBitmap);
+        CloseClipboard();
+
+        if (BitBlt(captureDC, 0, 0, screenWidth, screenHeight, targetDC, 0, 0, SRCCOPY)) {
+            BITMAPINFO bmi = { 0 };
+            bmi.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+            bmi.bmiHeader.biWidth = screenWidth;
+            bmi.bmiHeader.biHeight = -screenHeight;
+            bmi.bmiHeader.biPlanes = 1;
+            bmi.bmiHeader.biBitCount = 32;
+            bmi.bmiHeader.biCompression = BI_RGB;
+            bmi.bmiHeader.biSizeImage = 0;
+
+            if (!SelectObject(captureDC, old))
+                printf("Error unselecting object\n");
+            if (!GetDIBits(captureDC,
+                captureBitmap,
+                0,
+                screenHeight,
+                pixels,
+                &bmi,
+                DIB_RGB_COLORS
+            )) {
+                printf("%s: GetDIBits failed\n", __FUNCTION__);
+                return false;
+            }
+
+        }
+        else {
+            printf("%s: BitBlt failed\n", __FUNCTION__);
+            return false;
+        }
+        return true;
+    }
+    // This is from somewhere on stackoverflow - can't find where.
+    void MakePicture() {
+        typedef struct                       /**** BMP file header structure ****/
+        {
+            unsigned int   bfSize;           /* Size of file */
+            unsigned short bfReserved1;      /* Reserved */
+            unsigned short bfReserved2;      /* ... */
+            unsigned int   bfOffBits;        /* Offset to bitmap data */
+        } BITMAPFILEHEADER;
+
+        BITMAPFILEHEADER bfh;
+        BITMAPINFOHEADER bih;
+
+        unsigned short bfType = 0x4d42;
+        bfh.bfReserved1 = 0;
+        bfh.bfReserved2 = 0;
+        bfh.bfSize = 2 + sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER) + 2560 * 1440 * 3;
+        bfh.bfOffBits = 0x36;
+
+        bih.biSize = sizeof(BITMAPINFOHEADER);
+        bih.biWidth = screenWidth;
+        bih.biHeight = screenHeight;
+        bih.biPlanes = 1;
+        bih.biBitCount = 24;
+        bih.biCompression = 0;
+        bih.biSizeImage = 0;
+        bih.biXPelsPerMeter = 5000;
+        bih.biYPelsPerMeter = 5000;
+        bih.biClrUsed = 0;
+        bih.biClrImportant = 0;
+
+        FILE *file;
+        fopen_s(&file, "test.bmp", "wb");
+        if (!file)
+        {
+            printf("Could not write file\n");
+            return;
+        }
+
+      */  
     struct bmp_header header = {
     .bfType = 0x4D42,
     .bfileSize = img->width * img->height * sizeof(struct pixel) + img->height * count_padding(img) + sizeof(struct bmp_header),
